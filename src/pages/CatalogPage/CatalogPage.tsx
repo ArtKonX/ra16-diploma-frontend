@@ -119,7 +119,12 @@ const CatalogPage = () => {
 
     const renderCatalog = () => {
         if (catalog.categoriesItems.length === 0) {
-            return (<p className="fs-3 pt-5">Поиск не дал результатов(</p>)
+            return (
+                <>
+                    <MemoizedMenuCategories loading={loading} setLoading={setLoading} menuItems={catalog.categories} />
+                    <p className="fs-3 pt-5">Поиск не дал результатов(</p>)
+                </>
+            )
         } else if (loading.categories || loading.categoriesItems) {
             return <Loader />;
         }
