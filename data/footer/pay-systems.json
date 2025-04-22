@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "paypal"
+    },
+    {
+        "id": 2,
+        "name": "master-card"
+    },
+    {
+        "id": 3,
+        "name": "visa"
+    },
+    {
+        "id": 4,
+        "name": "yandex"
+    },
+    {
+        "id": 5,
+        "name": "webmoney"
+    },
+    {
+        "id": 6,
+        "name": "qiwi"
+    }
+]

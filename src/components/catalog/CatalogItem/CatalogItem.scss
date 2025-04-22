@@ -1,0 +1,39 @@
+.catalog-item-card {
+    margin-bottom: 1em;
+}
+
+.catalog-item-size {
+    display: inline-block;
+    padding: 0 10px;
+}
+
+.card-img-top {
+    height: 516px;
+    width: 100%;
+    object-fit: contain;
+}
+
+.catalog-item-size.selected {
+    background: #727e86;
+    border-radius: 15px;
+    color: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+    .card {
+        background-color: rgba(41, 41, 41, 0.639) !important;
+    }
+
+    .catalog-item-img {
+        z-index: -1;
+    }
+
+    .card-text {
+        color: white;
+    }
+
+    .btn {
+        border-color: #fff;
+        color: white;
+    }
+}

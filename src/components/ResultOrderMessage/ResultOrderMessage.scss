@@ -1,0 +1,91 @@
+.message-container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(148, 148, 148, 0.9);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .success-message,
+    .error-message {
+        background-color: white;
+        max-width: 700px;
+        width: 100%;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        position: relative;
+
+        .close-btn {
+            position: absolute;
+            right: 11px;
+            top: -41px;
+            background-color: white;
+            color: black;
+            width: 0;
+            height: 0;
+            padding: 0;
+            border: none;
+            font-size: 3rem;
+            z-index: 20;
+            transition: 1s;
+
+            &::after {
+                content: '';
+                background-color: white;
+                width: 35px;
+                height: 35px;
+                display: block;
+                position: relative;
+                border-radius: 50%;
+                top: -48.5px;
+                right: 6px;
+                z-index: -1;
+                transition: 1s;
+            }
+
+            &:hover {
+                color: red;
+            }
+        }
+
+        &__title {
+            padding: 20px;
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        &__text {
+            font-size: 2rem;
+            padding: 0 20px 20px;
+
+            .thankfulness {
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.error-message {
+    &__title {
+        background-color: red;
+    }
+}
+
+.success-message {
+    &__title {
+        background-color: green;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+
+    .success-message,
+    .error-message {
+        background-color: gray !important;
+        color: white;
+    }
+}

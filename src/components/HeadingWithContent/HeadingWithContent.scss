@@ -1,0 +1,13 @@
+.top-sales {
+    min-height: 300px;
+}
+
+.catalog {
+    min-height: 600px;
+}
+
+@media (prefers-color-scheme: dark) {
+    .title-content {
+        color: white !important;
+    }
+}

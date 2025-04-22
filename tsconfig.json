@@ -1,0 +1,23 @@
+{
+  "include": ["src"],
+  "compilerOptions": {
+    "module": "es2020",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "downlevelIteration": true,
+    "baseUrl": "./",
+    "paths": {
+      "@data/*": ["data/*"],
+      "@src/*": ["src/*"],
+      "@api/*": ["src/api/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@components/*": ["src/components/*"],
+      "@redux/*": ["src/redux/*"],
+      "@UI/*": ["src/components/uI/*"],
+      "@assets/*": ["src/assets/*"]
+    },
+    "jsx": "react-jsx"
+  }
+}
