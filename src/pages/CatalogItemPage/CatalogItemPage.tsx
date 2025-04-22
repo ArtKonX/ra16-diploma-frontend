@@ -17,6 +17,7 @@ import CatalogSize from "@src/components/catalog-item/CatalogSize/CatalogSize";
 import BtnActionWithItem from "@src/components/catalog-item/BtnActionWithItem/BtnActionWithItem";
 import { addInBasket } from "@src/redux/slices/BasketSlice";
 import Loader from "@src/components/Loader/Loader";
+import { removeIsSearching } from '@src/redux/slices/CatalogSlice';
 
 const MemoizedMainBanner = memo(MainBanner);
 
@@ -61,6 +62,10 @@ const CatalogItemPage = () => {
 
         fetchCatalogProduct();
     }, [dispatch,])
+
+    useEffect(() => {
+        dispatch(removeIsSearching())
+    }, [])
 
     useEffect(() => {
         if (!Array.isArray(catalogItem.catalogItem)) {

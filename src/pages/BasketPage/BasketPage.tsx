@@ -1,5 +1,5 @@
 import MainBanner from "@components/MainBanner/MainBanner"
-import { memo } from "react"
+import { memo, useEffect } from "react"
 import HeadingWithContent from "@components/HeadingWithContent/HeadingWithContent"
 import BasketTabel from "@src/components/basket/BasketTabel/BasketTabel";
 
@@ -13,6 +13,9 @@ import { selectBasketData, selectOrderData } from "@src/selectors/selectors"
 import FormOrder from "@src/components/basket/FormOrder/FormOrder"
 import ResultOrderMessage from "@src/components/ResultOrderMessage/ResultOrderMessage"
 import Loader from "@src/components/Loader/Loader";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "@src/redux/store";
+import { removeIsSearching } from "@src/redux/slices/CatalogSlice";
 
 const MemoizedMainBanner = memo(MainBanner);
 const MemoizedHeadingWithContent = memo(HeadingWithContent);
@@ -21,6 +24,12 @@ const BasketPage = () => {
 
     const basketData = useSelector(selectBasketData);
     const orderData = useSelector(selectOrderData);
+
+    const dispatch = useDispatch<AppDispatch>();
+
+    useEffect(() => {
+        dispatch(removeIsSearching())
+    }, [])
 
     const renderTableProducts = () => {
         return basketData.basketData.length > 0 ?

@@ -28,7 +28,8 @@ interface InitialState {
     url: string,
     error: string,
     render: boolean,
-    searchText: string
+    searchText: string,
+    isSearching: boolean
 }
 
 interface AddSearchTextPayloadAction {
@@ -40,6 +41,7 @@ const initialState = {
     categoriesItems: [],
     nextLenItemsOffset: 6,
     loading: false,
+    isSearching: false,
     url: VITE_BACKEND_URL,
     error: '',
     render: false,
@@ -57,6 +59,12 @@ export const CatalogSlice = createSliceWithThunk({
         topSalesState: (state) => state
     },
     reducers: (create) => ({
+        addIsSearching: create.reducer((state) => {
+            state.isSearching = true;
+        }),
+        removeIsSearching: create.reducer((state) => {
+            state.isSearching = false;
+        }),
         addSearchText: create.reducer((state, action: PayloadAction<AddSearchTextPayloadAction>) => {
             state.searchText = action.payload.searchText;
         }),
@@ -256,5 +264,5 @@ export const CatalogSlice = createSliceWithThunk({
     })
 });
 
-export const { fetchNextLenItemsOffset, resetNextLenItemsOffset, removeSearchText, addSearchText, changeRender, resetItems, fetchCategories, fetchCatalogCategoriesItems, fetchCatalogCategoriesItemsSearch } = CatalogSlice.actions;
+export const { addIsSearching, removeIsSearching, fetchNextLenItemsOffset, resetNextLenItemsOffset, removeSearchText, addSearchText, changeRender, resetItems, fetchCategories, fetchCatalogCategoriesItems, fetchCatalogCategoriesItemsSearch } = CatalogSlice.actions;
 export default CatalogSlice.reducer;

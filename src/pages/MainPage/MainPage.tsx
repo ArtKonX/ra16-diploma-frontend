@@ -6,7 +6,7 @@ import { fetchTopSale } from "@redux/slices/TopSalesSlice"
 import HeadingWithContent from "@components/HeadingWithContent/HeadingWithContent"
 import Loader from "@components/Loader/Loader"
 import MenuCategories from "@components/MenuCategories/MenuCategories"
-import { fetchCatalogCategoriesItems, fetchCategories, fetchNextLenItemsOffset, resetNextLenItemsOffset } from "@redux/slices/CatalogSlice"
+import { fetchCatalogCategoriesItems, fetchCategories, fetchNextLenItemsOffset, removeIsSearching, resetNextLenItemsOffset } from "@redux/slices/CatalogSlice"
 import BtnMoreItems from "@components/BtnMoreItems/BtnMoreItems"
 import { AppDispatch } from "@redux/store"
 import { selectCatalog, selectTopSales } from "@src/selectors/selectors";
@@ -34,6 +34,10 @@ const MainPage = () => {
     const [loading, setLoading] = useState<LoadingState>({ topSales: true, categoriesItems: true, categories: true, categoriesItemsAdd: true })
 
     const dispatch = useDispatch<AppDispatch>();
+
+    useEffect(() => {
+        dispatch(removeIsSearching())
+    }, [])
 
     useEffect(() => {
         dispatch(resetNextLenItemsOffset());

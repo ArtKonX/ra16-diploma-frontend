@@ -24,7 +24,7 @@ const Header = () => {
                             <button onClick={getSearchForm} data-id="search-expander"
                                 className="header-controls-pic header-controls-search" />
                             <Basket />
-                            <SearchFormHeader isSearch={isSearch} />
+                            <SearchFormHeader setIsSearch={setIsSearch} isSearch={isSearch} />
                         </div>
                     </div>
                 </div>

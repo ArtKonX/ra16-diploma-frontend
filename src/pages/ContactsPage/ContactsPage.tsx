@@ -1,7 +1,7 @@
 import './ContactsPage.scss';
 
 import MainBanner from "@components/MainBanner/MainBanner"
-import { memo } from "react"
+import { memo, useEffect } from "react"
 import HeadingWithContent from "@components/HeadingWithContent/HeadingWithContent"
 import Paragraph from '@ui/Paragraph/Paragraph';
 import { Link } from 'react-router-dom';
@@ -9,11 +9,20 @@ import { Link } from 'react-router-dom';
 import bannerSrc from '@assets/images/banner.jpg';
 
 import contactInfo from '@data/contacts/contact-info.json';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '@src/redux/store';
+import { removeIsSearching } from '@src/redux/slices/CatalogSlice';
 
 const MemoizedMainBanner = memo(MainBanner);
 const MemoizedHeadingWithContent = memo(HeadingWithContent);
 
 const ContactsPage = () => {
+
+    const dispatch = useDispatch<AppDispatch>();
+
+    useEffect(() => {
+        dispatch(removeIsSearching())
+    }, [])
 
     return (
         <div className="row">

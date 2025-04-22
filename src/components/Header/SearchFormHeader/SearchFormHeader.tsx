@@ -1,16 +1,27 @@
 import './SearchFormHeader.scss';
 
 import { useDebounce } from "@src/hooks/useDebounce";
-import { addSearchText, fetchCatalogCategoriesItemsSearch, resetItems } from "@src/redux/slices/CatalogSlice";
+import { addIsSearching, addSearchText, fetchCatalogCategoriesItemsSearch, resetItems } from "@src/redux/slices/CatalogSlice";
 import { AppDispatch } from "@src/redux/store";
+import { selectCatalog } from '@src/selectors/selectors';
 import { ChangeEvent, useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
 
-const SearchFormHeader = ({ isSearch }: { isSearch: boolean }) => {
+interface SearchFormHeaderProps {
+    setIsSearch: (isSearch: boolean) => void,
+    isSearch: boolean
+}
+
+const SearchFormHeader = ({ setIsSearch, isSearch }: SearchFormHeaderProps) => {
 
     const [searchText, setSearchText] = useState<string>('');
+
+    const catalog = useSelector(selectCatalog);
+
     const navigator = useNavigate();
+
+    const location = useLocation()
 
     const debouncedValue = useDebounce(searchText, 500);
     const dispatch = useDispatch<AppDispatch>();
@@ -22,8 +33,15 @@ const SearchFormHeader = ({ isSearch }: { isSearch: boolean }) => {
             dispatch(resetItems())
             dispatch(fetchCatalogCategoriesItemsSearch());
             navigator(`/catalog?q=${debouncedValue}`)
+
+            dispatch(addIsSearching())
         }
     }, [debouncedValue]);
+
+    useEffect(() => {
+        setSearchText('');
+        setIsSearch(false)
+    }, [location.pathname])
 
     const onSearch = (e: ChangeEvent<HTMLInputElement>) => {
         const { value } = e.target;
@@ -32,9 +50,9 @@ const SearchFormHeader = ({ isSearch }: { isSearch: boolean }) => {
     }
 
     return (
-        <form data-id="search-form" className={`header-controls-search-form form-inline ${!isSearch &&
+        <form data-id="search-form" className={`header-controls-search-form form-inline ${(!isSearch || catalog.isSearching) &&
             'invisible'}`}>
-            <input onChange={onSearch} className="form-control" placeholder="Поиск" />
+            <input onChange={onSearch} className="form-control" placeholder="Поиск" value={searchText} />
         </form>
     )
 }

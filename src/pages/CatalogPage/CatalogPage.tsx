@@ -6,7 +6,7 @@ import { fetchTopSale } from "@redux/slices/TopSalesSlice"
 import HeadingWithContent from "@components/HeadingWithContent/HeadingWithContent"
 import Loader from "@components/Loader/Loader"
 import MenuCategories from "@components/MenuCategories/MenuCategories"
-import { addSearchText, fetchCatalogCategoriesItems, fetchCatalogCategoriesItemsSearch, fetchCategories, fetchNextLenItemsOffset, resetItems, resetNextLenItemsOffset } from "@redux/slices/CatalogSlice"
+import { addSearchText, fetchCatalogCategoriesItems, fetchCatalogCategoriesItemsSearch, fetchCategories, fetchNextLenItemsOffset, removeIsSearching, resetItems, resetNextLenItemsOffset } from "@redux/slices/CatalogSlice"
 import BtnMoreItems from "@components/BtnMoreItems/BtnMoreItems"
 import { AppDispatch } from "@redux/store"
 import { selectCatalog } from "@src/selectors/selectors";
@@ -122,7 +122,7 @@ const CatalogPage = () => {
             return (
                 <>
                     <MemoizedMenuCategories loading={loading} setLoading={setLoading} menuItems={catalog.categories} />
-                    <p className="fs-3 pt-5">Поиск не дал результатов(</p>)
+                    <p className="fs-3 pt-5">Поиск не дал результатов(</p>
                 </>
             )
         } else if (loading.categories || loading.categoriesItems) {
