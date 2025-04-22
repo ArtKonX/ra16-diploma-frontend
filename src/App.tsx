@@ -8,13 +8,13 @@ import ContactsPage from './pages/ContactsPage/ContactsPage';
 import CatalogItemPage from './pages/CatalogItemPage/CatalogItemPage';
 import BasketPage from './pages/BasketPage/BasketPage';
 import NotFound from './pages/NotFound/NotFound';
-import Layout from './Layout/Layout';
+import Layout from './components/Layout/Layout';
 
 function App() {
 
   return (
     <>
-      <BrowserRouter basename='/'>
+      <BrowserRouter basename='/ra16-diploma-frontend'>
         <Routes>
           <Route path="/" element={
             <Layout classNamePage='main-page'>
