@@ -17,6 +17,7 @@
       "@api/*": ["src/api/*"],
       "@hooks/*": ["src/hooks/*"],
       "@components/*": ["src/components/*"],
+      "@ui/*": ["src/components/ui-components/*"],
       "@redux/*": ["src/redux/*"],
       "@assets/*": ["src/assets/*"]
     },
