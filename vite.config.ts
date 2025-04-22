@@ -7,7 +7,6 @@ const __filePath = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filePath);
 
 export default defineConfig({
-  base: '/ra16-diploma-frontend',
   resolve: {
     alias: {
       "@data": path.resolve(__dirname, "./data"),
