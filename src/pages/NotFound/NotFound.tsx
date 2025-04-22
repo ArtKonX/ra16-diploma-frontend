@@ -5,7 +5,7 @@ import notFoundData from '@data/not-found/not-found-data.json';
 
 import bannerSrc from '@assets/images/banner.jpg';
 import HeadingWithContent from "@src/components/HeadingWithContent/HeadingWithContent";
-import Paragraph from "@ui/Paragraph/Paragraph";
+import Paragraph from "@src/components/ui/Paragraph/Paragraph";
 
 const MemoizedMainBanner = memo(MainBanner);
 const MemoizedHeadingWithContent = memo(HeadingWithContent);

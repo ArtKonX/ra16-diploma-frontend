@@ -18,7 +18,6 @@
       "@hooks/*": ["src/hooks/*"],
       "@components/*": ["src/components/*"],
       "@redux/*": ["src/redux/*"],
-      "@ui/*": ["src/components/ui/*"],
       "@assets/*": ["src/assets/*"]
     },
     "jsx": "react-jsx"
