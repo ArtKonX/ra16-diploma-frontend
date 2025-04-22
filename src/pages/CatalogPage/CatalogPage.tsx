@@ -11,7 +11,7 @@ import BtnMoreItems from "@components/BtnMoreItems/BtnMoreItems"
 import { AppDispatch } from "@redux/store"
 import { selectCatalog } from "@src/selectors/selectors";
 import { useSelector } from "@src/hooks/useTypedSelector";
-import SearchForm from "@src/components/ui-components/SearchForm/SearchForm";
+import SearchForm from "@ui/SearchForm/SearchForm";
 import { useDebounce } from "@src/hooks/useDebounce";
 import { useLocation } from "react-router-dom";
 

@@ -3,7 +3,7 @@ import './ContactsPage.scss';
 import MainBanner from "@components/MainBanner/MainBanner"
 import { memo } from "react"
 import HeadingWithContent from "@components/HeadingWithContent/HeadingWithContent"
-import Paragraph from '@src/components/ui-components/Paragraph/Paragraph';
+import Paragraph from '@ui/Paragraph/Paragraph';
 import { Link } from 'react-router-dom';
 
 import bannerSrc from '@assets/images/banner.jpg';
