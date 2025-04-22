@@ -1,4 +1,4 @@
-import TableRow from '@src/components/uI/TableRow/TableRow';
+import TableRow from '@src/components/ui/TableRow/TableRow';
 import './TableCatalogItem.scss';
 
 const TableCatalogItem = ({ dataItem }: { dataItem: string[] }) => {

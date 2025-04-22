@@ -7,7 +7,7 @@ import MainBanner from "@components/MainBanner/MainBanner"
 import { memo } from "react"
 import HeadingWithContent from "@components/HeadingWithContent/HeadingWithContent"
 import ListAboutUs from "@src/components/about-us/ListAboutUs/ListAboutUs";
-import Paragraph from "@src/components/uI/Paragraph/Paragraph"
+import Paragraph from "@src/components/ui/Paragraph/Paragraph";
 
 const MemoizedMainBanner = memo(MainBanner);
 const MemoizedHeadingWithContent = memo(HeadingWithContent);

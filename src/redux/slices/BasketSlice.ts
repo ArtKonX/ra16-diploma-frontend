@@ -57,7 +57,7 @@ const BasketSlice = createSliceWithThunk({
                     count: itemCount,
                     allPrice: itemAllPrice
                 }
-                
+
             } else {
                 state.basketData.push(action.payload.basketData);
             }

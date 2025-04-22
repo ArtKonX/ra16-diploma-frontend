@@ -46,6 +46,11 @@ const CatalogItemSlice = createSliceWithThunk({
         catalogItemState: (state) => state,
     },
     reducers: (create) => ({
+        resetCatalogItem: create.reducer((state) => {
+            state.catalogItem = [];
+            state.loading = false;
+            state.error = ''
+        }),
         fetchCatalogItem: create.asyncThunk(
             async (action: { id: string; }, { rejectWithValue, getState }) => {
 
@@ -85,5 +90,5 @@ const CatalogItemSlice = createSliceWithThunk({
     }),
 });
 
-export const { fetchCatalogItem } = CatalogItemSlice.actions;
+export const { resetCatalogItem, fetchCatalogItem } = CatalogItemSlice.actions;
 export default CatalogItemSlice.reducer;

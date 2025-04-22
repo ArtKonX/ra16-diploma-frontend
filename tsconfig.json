@@ -1,8 +1,11 @@
 {
   "include": ["src"],
   "compilerOptions": {
-    "module": "es2020",
-    "moduleResolution": "node",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "target": "esnext",
+    "lib": ["esnext", "dom"],
+    "skipLibCheck": false,
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -15,7 +18,7 @@
       "@hooks/*": ["src/hooks/*"],
       "@components/*": ["src/components/*"],
       "@redux/*": ["src/redux/*"],
-      "@UI/*": ["src/components/uI/*"],
+      "@UI/*": ["src/components/ui/*"],
       "@assets/*": ["src/assets/*"]
     },
     "jsx": "react-jsx"

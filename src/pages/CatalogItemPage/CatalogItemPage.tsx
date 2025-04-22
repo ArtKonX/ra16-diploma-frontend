@@ -8,7 +8,7 @@ import MainBanner from "@components/MainBanner/MainBanner"
 import { memo, useEffect, useState } from "react"
 import HeadingWithContent from "@components/HeadingWithContent/HeadingWithContent"
 import { useDispatch } from "react-redux";
-import { fetchCatalogItem } from "@src/redux/slices/CatalogItemSlice";
+import { fetchCatalogItem, resetCatalogItem } from "@src/redux/slices/CatalogItemSlice";
 import { AppDispatch } from "@src/redux/store";
 import { selectCatalogItem } from "@src/selectors/selectors";
 import { useSelector } from "@src/hooks/useTypedSelector";
@@ -80,12 +80,14 @@ const CatalogItemPage = () => {
             })
         }
 
-    }, [Array.isArray(catalogItem.catalogItem)])
+    }, [Array.isArray(catalogItem.catalogItem)]);
 
     const addOrder = () => {
         dispatch(addInBasket({ basketData: orderData }));
 
-        navigate("/cart")
+        navigate("/cart");
+
+        dispatch(resetCatalogItem())
     }
 
     if (Array.isArray(catalogItem.catalogItem)) return <Loader />
