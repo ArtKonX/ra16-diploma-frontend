@@ -15,7 +15,7 @@ export default defineConfig({
       "@hooks": path.resolve(__dirname, "./src/hooks"),
       "@components": path.resolve(__dirname, "./src/components"),
       "@redux": path.resolve(__dirname, "./src/redux"),
-      "@UI": path.resolve(__dirname, "./src/components/UI"),
+      "@ui": path.resolve(__dirname, "./src/components/ui"),
       "@assets": path.resolve(__dirname, "./src/assets"),
     }
   },
