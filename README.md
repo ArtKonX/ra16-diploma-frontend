@@ -1,7 +1,6 @@
 # Дипломный проект курса «React»
 
-![CI](https://github.com/ArtKonX/ra16-diploma-frontend
-/actions/workflows/web.yml/badge.svg)
+![CI](https://github.com/ArtKonX/ra16-diploma-frontend/actions/workflows/web.yml/badge.svg)
 
 [Ссылка на Github Pages](https://artkonx.github.io/ra16-diploma-frontend/)
 
