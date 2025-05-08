@@ -19,6 +19,6 @@ export default defineConfig({
       "@assets": path.resolve(__dirname, "./src/assets"),
     }
   },
-  base: '/ra16-diploma-frontend/',
+  base: '/ra16-diploma-frontend',
   plugins: [react()],
 })

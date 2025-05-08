@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import ListCatalogItems from "@components/catalog/ListCatalogItems/ListCatalogItems"
 import MainBanner from "@components/MainBanner/MainBanner"
-import { memo, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { fetchTopSale } from "@redux/slices/TopSalesSlice"
 import HeadingWithContent from "@components/HeadingWithContent/HeadingWithContent"
 import Loader from "@components/Loader/Loader"
@@ -16,11 +16,6 @@ import { useDebounce } from "@src/hooks/useDebounce";
 import { useLocation } from "react-router-dom";
 
 import bannerSrc from '@assets/images/banner.jpg';
-
-const MemoizedMainBanner = memo(MainBanner);
-const MemoizedHeadingWithContent = memo(HeadingWithContent);
-const MemoizedListCatalogItems = memo(ListCatalogItems);
-const MemoizedMenuCategories = memo(MenuCategories);
 
 interface LoadingState {
     topSales: boolean,
@@ -121,7 +116,7 @@ const CatalogPage = () => {
         if (catalog.categoriesItems.length === 0) {
             return (
                 <>
-                    <MemoizedMenuCategories loading={loading} setLoading={setLoading} menuItems={catalog.categories} />
+                    <MenuCategories loading={loading} setLoading={setLoading} menuItems={catalog.categories} />
                     <p className="fs-3 pt-5">Поиск не дал результатов(</p>
                 </>
             )
@@ -131,8 +126,8 @@ const CatalogPage = () => {
 
         return (
             <>
-                <MemoizedMenuCategories loading={loading} setLoading={setLoading} menuItems={catalog.categories} />
-                <MemoizedListCatalogItems items={catalog.categoriesItems} />
+                <MenuCategories loading={loading} setLoading={setLoading} menuItems={catalog.categories} />
+                <ListCatalogItems items={catalog.categoriesItems} />
                 {(loading.categoriesItemsAdd && catalog.nextLenItemsOffset % 6 == 0 && catalog.nextLenItemsOffset !== 0) && <Loader />}
                 {renderBtnMoreItems()}
             </>
@@ -142,11 +137,11 @@ const CatalogPage = () => {
     return (
         <div className="row">
             <div className="row p-0">
-                <MemoizedMainBanner textBanner='К весне готовы!' bannerSrc={bannerSrc} />
-                <MemoizedHeadingWithContent classText='catalog p-0' titleHeading='Каталог'>
+                <MainBanner textBanner='К весне готовы!' bannerSrc={bannerSrc} />
+                <HeadingWithContent classText='catalog p-0' titleHeading='Каталог'>
                     <SearchForm searchText={searchText} setSearchText={setSearchText} />
                     {renderCatalog()}
-                </MemoizedHeadingWithContent>
+                </HeadingWithContent>
             </div>
         </div>
     )

@@ -1,5 +1,5 @@
 import MainBanner from "@components/MainBanner/MainBanner"
-import { memo, useEffect } from "react"
+import { useEffect } from "react"
 import HeadingWithContent from "@components/HeadingWithContent/HeadingWithContent"
 import BasketTabel from "@src/components/basket/BasketTabel/BasketTabel";
 
@@ -16,9 +16,6 @@ import Loader from "@src/components/Loader/Loader";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@src/redux/store";
 import { removeIsSearching } from "@src/redux/slices/CatalogSlice";
-
-const MemoizedMainBanner = memo(MainBanner);
-const MemoizedHeadingWithContent = memo(HeadingWithContent);
 
 const BasketPage = () => {
 
@@ -72,13 +69,13 @@ const BasketPage = () => {
             {renderLoaderOrder()}
             <div className="row">
                 <div className="row p-0">
-                    <MemoizedMainBanner textBanner='К весне готовы!' bannerSrc={bannerSrc} />
-                    <MemoizedHeadingWithContent classText='cart p-0' titleHeading='Корзина'>
+                    <MainBanner textBanner='К весне готовы!' bannerSrc={bannerSrc} />
+                    <HeadingWithContent classText='cart p-0' titleHeading='Корзина'>
                         {renderTableProducts()}
-                    </MemoizedHeadingWithContent>
-                    <MemoizedHeadingWithContent classText='order p-0' titleHeading='Оформить заказ'>
+                    </HeadingWithContent>
+                    <HeadingWithContent classText='order p-0' titleHeading='Оформить заказ'>
                         {renderOrderForm()}
-                    </MemoizedHeadingWithContent>
+                    </HeadingWithContent>
                 </div>
             </div >
         </>

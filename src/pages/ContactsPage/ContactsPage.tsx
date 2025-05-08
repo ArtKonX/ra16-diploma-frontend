@@ -1,7 +1,7 @@
 import './ContactsPage.scss';
 
 import MainBanner from "@components/MainBanner/MainBanner"
-import { memo, useEffect } from "react"
+import { useEffect } from "react"
 import HeadingWithContent from "@components/HeadingWithContent/HeadingWithContent"
 import Paragraph from '@ui/Paragraph/Paragraph';
 import { Link } from 'react-router-dom';
@@ -12,9 +12,6 @@ import contactInfo from '@data/contacts/contact-info.json';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '@src/redux/store';
 import { removeIsSearching } from '@src/redux/slices/CatalogSlice';
-
-const MemoizedMainBanner = memo(MainBanner);
-const MemoizedHeadingWithContent = memo(HeadingWithContent);
 
 const ContactsPage = () => {
 
@@ -27,8 +24,8 @@ const ContactsPage = () => {
     return (
         <div className="row">
             <div className="row p-0">
-                <MemoizedMainBanner textBanner='К весне готовы!' bannerSrc={bannerSrc} />
-                <MemoizedHeadingWithContent classText='top-sales' titleHeading='Контакты'>
+                <MainBanner textBanner='К весне готовы!' bannerSrc={bannerSrc} />
+                <HeadingWithContent classText='top-sales' titleHeading='Контакты'>
                     <Paragraph classInfo='text-start mb-3' text={contactInfo.address} />
                     <h5 className="title-coors text-center">Координаты для связи:</h5>
                     <p className="text-contacts text-start mb-3">
@@ -44,7 +41,7 @@ const ContactsPage = () => {
                             {contactInfo.email}
                         </Link>
                     </p>
-                </MemoizedHeadingWithContent>
+                </HeadingWithContent>
             </div>
         </div>
     )

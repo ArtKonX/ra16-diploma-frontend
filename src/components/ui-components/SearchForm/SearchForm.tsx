@@ -1,10 +1,11 @@
 import { ChangeEvent } from 'react';
 import './SearchForm.scss';
 import { useNavigate } from 'react-router-dom';
+import encodeQuery from '@src/utils/encodeQuery';
 
 const SearchForm = ({ searchText, setSearchText }) => {
 
-    const navigator = useNavigate()
+    const navigator = useNavigate();
 
     const onSearch = (e: ChangeEvent<HTMLInputElement>) => {
 
@@ -12,7 +13,7 @@ const SearchForm = ({ searchText, setSearchText }) => {
 
         setSearchText(value)
 
-        navigator(`/catalog?q=${searchText}`)
+        navigator(`/catalog?q=${encodeQuery(searchText)}`)
     }
 
     return (

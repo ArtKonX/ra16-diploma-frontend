@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import bannerSrc from '@assets/images/banner.jpg';
 
 import MainBanner from "@components/MainBanner/MainBanner"
-import { memo, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import HeadingWithContent from "@components/HeadingWithContent/HeadingWithContent"
 import { useDispatch } from "react-redux";
 import { fetchCatalogItem, resetCatalogItem } from "@src/redux/slices/CatalogItemSlice";
@@ -18,8 +18,6 @@ import BtnActionWithItem from "@src/components/catalog-item/BtnActionWithItem/Bt
 import { addInBasket } from "@src/redux/slices/BasketSlice";
 import Loader from "@src/components/Loader/Loader";
 import { removeIsSearching } from '@src/redux/slices/CatalogSlice';
-
-const MemoizedMainBanner = memo(MainBanner);
 
 const CatalogItemPage = () => {
 
@@ -100,7 +98,7 @@ const CatalogItemPage = () => {
     return (
         <div className="row">
             <div className="row p-0">
-                <MemoizedMainBanner textBanner='К весне готовы!' bannerSrc={bannerSrc} />
+                <MainBanner textBanner='К весне готовы!' bannerSrc={bannerSrc} />
                 <HeadingWithContent classText='catalog-item' titleHeading={catalogItem.catalogItem.title}>
                     <div className="d-flex gap-3">
                         <div className="col-5">
